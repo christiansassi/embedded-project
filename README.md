@@ -34,15 +34,10 @@
 -   [Project Layout](#project-layout)
 -   [Code Overview](#code-overview)
     - [MSP432](#msp432)
-    
       - [Project Layout](#project-layout-msp432)
-    
       - [Menu](#menu)
-    
       - [Meter](#meter)
-    
-      - [Bubble Level](#bubble-line)
-    
+      - [Bubble Level](#bubble-level)
       - [Lidar](#lidar)
     - [ESP32](#esp32)
       - [Project Layout](#project-layout-arduino)
