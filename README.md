@@ -178,8 +178,8 @@ The following components were used for this project:
 A 3D printed structure was developed for this project. Although the connection diagram remains the same, the BoosterPack is not directly connected to the MSP432 due to the limited space. Instead, as showed in the photos, the BoosterPack was connected to the MSP432 using wires to separate the two boards and optimize the space within the structure.
 
 <p float="left" align="center">
-    <img width="49%" src="assets/photos/3d-model1.png"/>
-    <img width="49%" src="assets/photos/3d-model2.png"/>
+    <img width="49%" src="assets/images/photos/3d-model1.png"/>
+    <img width="49%" src="assets/images/photos/3d-model2.png"/>
 </p>
 
 ## Software Requirements
@@ -262,7 +262,9 @@ Click on the **Upload** button.
 
 ```
 bLong
- ┣ assets 				# Project resources (images, 3D model)
+ ┣ assets 				# Project resources folder
+ ┃ ┣ 3D case 				# 3D case folder
+ ┃ ┗ images 				# Images folder
  ┣ ESP32 				# ESP32 folder
  ┃ ┣ libraries 				# ESP32 libraries
  ┃ ┗ src 				# ESP32 source code 
@@ -500,4 +502,4 @@ Pietro Bologna - [pietro.bologna@studenti.unitn.it](mailto:pietro.bologna@studen
 
 Christian Sassi - [christian.sassi@studenti.unitn.it](mailto:christian.sassi@studenti.unitn.it)
 
-<a href="https://www.unitn.it/"><img src="assets/extras/unitn-logo.png" width="300px"></a>
+<a href="https://www.unitn.it/"><img src="assets/images/extras/unitn-logo.png" width="300px"></a>
