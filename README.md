@@ -450,6 +450,7 @@ Once you have uploaded the scripts to both the MSP432 and ESP32 and done all the
 # Video and Presentation
 
 Video
+
 Presentation
 
 # Contributions
@@ -494,7 +495,9 @@ This project was developed by three students from the University of Trento, each
 # Contacts
 
 Luca Pedercini - [luca.pedercini@studenti.unitn.it](mailto:luca.pedercini@studenti.unitn.it)
+
 Pietro Bologna - [pietro.bologna@studenti.unitn.it](mailto:pietro.bologna@studenti.unitn.it)
+
 Christian Sassi - [christian.sassi@studenti.unitn.it](mailto:christian.sassi@studenti.unitn.it)
 
 <a href="https://www.unitn.it/"><img src="assets/extras/unitn-logo.png" width="300px"></a>
