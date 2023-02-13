@@ -213,12 +213,12 @@ The following softwares were used for this project:
 
   1. In the **Project Explorer**, right click on the project folder, then go to **Properties**. Alternatively, you can press `Alt+Enter` on Windows or `Cmd+Enter` on Mac.
   2. Go to **Build** > **Arm Compiler** > **Include Options** and add the following path:
-        - `simplelink_msp432p4_sdk_3_40_01_02\source` (or the path where you saved the folder).
+        - `simplelink_msp432p4_sdk_3_40_01_02\source` (or the path where you saved the lib).
   
   
     3. Go to **Build** > **Arm Linker** > **File Search Path** and add the following paths:
-        - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\grlib\lib\ccs\m4\grlib.a` (the path where you saved the folder).
-        - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\devices\msp432p4xx\driverlib\ccs\msp432p4xx_driverlib.lib` (the path where you saved the folder).
+        - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\grlib\lib\ccs\m4\grlib.a` (the path where you saved the lib).
+        - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\devices\msp432p4xx\driverlib\ccs\msp432p4xx_driverlib.lib` (the path where you saved the lib).
   
 * Put the `LcdDriver` folder located at `MSP432P401R/libraries` inside the project folder.
 
