@@ -2,7 +2,7 @@
 
 <div align="center">
     <p>
-        <img width="100%" src="assets/extras/logo.png"/>
+        <img width="100%" src="assets/images/extras/logo.png"/>
     </p>
     <div>
         <img src="https://img.shields.io/badge/c-%2300599C.svg?style=flat&logo=c&logoColor=white" alt="C"/>
@@ -81,7 +81,7 @@ The following components were used for this project:
 
 <div align="center">
     <p>
-        <img width="100%" src="assets/connection diagrams/circuit.png"/>
+        <img width="100%" src="assets/images/connection diagrams/circuit.png"/>
     </p>
     <br>
     <table>
