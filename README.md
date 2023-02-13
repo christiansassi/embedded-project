@@ -209,9 +209,7 @@ The following softwares were used for this project:
 
 <h3 id="install-the-libraries-ccs">Install the Libraries</h3>
 
-Two libraries must be included in the project and can be found in the `MSP432P401R/libraries` folder of the repo.
-
-* Extract the `simplelink_msp432p4_sdk_3_40_01_02.zip`, then:
+* Download the `SIMPLELINK-MSP432-SDK` library [here](https://www.ti.com/tool/download/SIMPLELINK-MSP432-SDK/3.40.01.02), then:
 
   1. In the **Project Explorer**, right click on the project folder, then go to **Properties**. Alternatively, you can press `Alt+Enter` on Windows or `Cmd+Enter` on Mac.
   2. Go to **Build** > **Arm Compiler** > **Include Options** and add the following path:
@@ -222,7 +220,7 @@ Two libraries must be included in the project and can be found in the `MSP432P40
         - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\grlib\lib\ccs\m4\grlib.a` (the path where you saved the folder).
         - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\devices\msp432p4xx\driverlib\ccs\msp432p4xx_driverlib.lib` (the path where you saved the folder).
   
-* Put the `LcdDriver` folder inside the project folder.
+* Put the `LcdDriver` folder located at `MSP432P401R/libraries` inside the project folder.
 
 
 <h3 id="run-the-project-ccs">Run the Project</h3>
