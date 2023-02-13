@@ -262,12 +262,12 @@ Click on the **Upload** button.
 
 ```
 bLong
- ┣ assets 				# Project resources (images)
+ ┣ assets 				# Project resources (images, 3D model)
  ┣ ESP32 				# ESP32 folder
- ┃ ┣ libraries 			# ESP32 libraries
+ ┃ ┣ libraries 				# ESP32 libraries
  ┃ ┗ src 				# ESP32 source code 
- ┣ MSP432P401R 			# MSP432 folder
- ┃ ┣ libraries 			# MSP432 libraries
+ ┣ MSP432P401R 				# MSP432 folder
+ ┃ ┣ libraries 				# MSP432 libraries
  ┃ ┗ src 				# MSP432 source code
 ```
 
@@ -278,21 +278,20 @@ bLong
 <h3 id="project-layout-msp432">Project Layout</h3>
 
 ```
-ESP32
+MSP432
  ┣ libraries						# Libraries to be included in the project (see Installation and Configuration)
  ┃ ┣ LcdDriver
- ┃ ┣ simplelink_msp432p4_sdk_3_40_01_02.zip
  ┗ src
  ┃ ┣ LcdDriver						# Support for the Lcd screen of the BoosterPack board
  ┃ ┣ Gr_bLong.c						# Splash screen image
- ┃ ┣ Gr_bubbleLevel.c				# Bubble Level interface
+ ┃ ┣ Gr_bubbleLevel.c					# Bubble Level interface
  ┃ ┣ Gr_lidarInit.c					# Lidar interface
  ┃ ┣ Gr_menu.c						# Menu interface
  ┃ ┣ Gr_meterInit.c					# Initial Meter interface
- ┃ ┣ Gr_meterMeasure.c				# Running Meter interface
- ┃ ┣ main.c							# Main
- ┃ ┣ msp432_bubbleLevel.c			# Manages the Bubble Level tool 
- ┃ ┣ msp432_bubbleLevel.h			# //
+ ┃ ┣ Gr_meterMeasure.c					# Running Meter interface
+ ┃ ┣ main.c						# Main
+ ┃ ┣ msp432_bubbleLevel.c				# Manages the Bubble Level tool 
+ ┃ ┣ msp432_bubbleLevel.h				# //
  ┃ ┣ msp432_init.c					# Initializes hardware
  ┃ ┣ msp432_init.h					# //
  ┃ ┣ msp432_lidar.c					# Manages the Lidar distance tool
@@ -349,17 +348,17 @@ For this project, the lidar sensor is connected to the ESP32 which acts as the m
 ESP32
  ┣ libraries
  ┃ ┣ Adafruit_VL53L0X				# Library used for the Lidar sensor
- ┃ ┣ AsyncTCP						# Library used for the Web Application
+ ┃ ┣ AsyncTCP					# Library used for the Web Application
  ┃ ┗ ESPAsyncWebServer				# Library used for the Web Application
  ┗ src
- ┃ ┣ esp32.ino						# Arduino project
+ ┃ ┣ esp32.ino					# Arduino project
  ┃ ┣ esp32.svd						
  ┃ ┣ esp32_async_server.cpp			# Manages the Web Application
  ┃ ┣ esp32_async_server.h			# //
  ┃ ┣ esp32_lidar.cpp				# Manages the Lidar sensor
- ┃ ┣ esp32_lidar.h					# //
- ┃ ┣ esp32_uart.cpp					# Manages UART communication
- ┃ ┗ esp32_uart.h					# //
+ ┃ ┣ esp32_lidar.h				# //
+ ┃ ┣ esp32_uart.cpp				# Manages UART communication
+ ┃ ┗ esp32_uart.h				# //
 ```
 
 ### UART Communication
