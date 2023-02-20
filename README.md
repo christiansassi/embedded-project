@@ -448,7 +448,7 @@ Once you have uploaded the scripts to both the MSP432 and ESP32 and done all the
 
 Video
 
-Presentation
+[Presentation]()
 
 # Contributions
 
