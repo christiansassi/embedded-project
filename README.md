@@ -170,7 +170,7 @@ The following components were used for this project:
 
 > **Note**: if you are using this connection diagram, be aware that by directly attaching the BoosterPack to the top of the MSP432, all its upper pins will be occupied because of the BoosterPack's size. As a result, it will be necessary to connect other devices and/or sensors below the MSP432 or above the BoosterPack.
 
-A 3D printed structure was developed for this project. Although the connection diagram remains the same, the BoosterPack is not directly connected to the MSP432 due to the limited space. Instead, as showed in the photos, the BoosterPack was connected to the MSP432 using wires to separate the two boards and optimize the space within the structure.
+A [3D printed case](assets/case/case.stl) was developed for this project. Although the connection diagram remains the same, the BoosterPack is not directly connected to the MSP432 due to the limited space. Instead, as showed in the photos, the BoosterPack was connected to the MSP432 using wires to separate the two boards and optimize the space within the structure.
 
 <p float="left" align="center">
     <img width="49%" src="assets/images/photos/3d-model1.png"/>
