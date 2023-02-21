@@ -350,8 +350,7 @@ ESP32
  ┃ ┣ AsyncTCP					# Library used for the Web Application
  ┃ ┗ ESPAsyncWebServer				# Library used for the Web Application
  ┗ src
- ┃ ┣ esp32.ino					# Arduino project
- ┃ ┣ esp32.svd						
+ ┃ ┣ esp32.ino					# Arduino project	
  ┃ ┣ esp32_async_server.cpp			# Manages the Web Application
  ┃ ┣ esp32_async_server.h			# //
  ┃ ┣ esp32_lidar.cpp				# Manages the Lidar sensor
