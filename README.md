@@ -173,9 +173,9 @@ The following components were used for this project:
 A [3D printed case](assets/case/case.stl) was developed for this project. Although the connection diagram remains the same, the BoosterPack is not directly connected to the MSP432 due to the limited space. Instead, as showed in the photos, the BoosterPack was connected to the MSP432 using wires to separate the two boards and optimize the space within the structure.
 
 <p float="left" align="center">
-    <img width="30%" src="assets/images/photos/3d-model1.png"/>
-    <img width="30%" src="assets/images/photos/3d-model2.png"/>
-    <img width="30%" src="assets/images/photos/case.png"/>
+    <img width="32%" src="assets/images/photos/3d-model1.png"/>
+    <img width="32%" src="assets/images/photos/3d-model2.png"/>
+    <img width="32%" src="assets/images/photos/case.png"/>
 </p>
 
 ## Software Requirements
