@@ -24,12 +24,12 @@
     -   [Code Composer Studio - MSP432](#code-composer-studio---msp432)
         -   [Setup IDE](#setup-ide-ccs)
         -   [Import the Project](#import-the-project-ccs)
-        -   [Install the Libraries](#install-the-libraries-ccs)
+	-   [Import the Libraries](#import-the-libraries-ccs)
         -   [Run the project](#run-the-project-ccs)
     -   [Arduino IDE 2 - ESP32](#arduino-ide-2---esp32)
         -   [Setup IDE](#setup-ide-arduino)
         -   [Import the Project](#import-the-project-arduino)
-        -   [Install the Libraries](#install-the-libraries-arduino)
+        -   [Import the Libraries](#import-the-libraries-arduino)
         -   [Run the project](#run-the-project-arduino)
 -   [Project Layout](#project-layout)
 -   [Code Overview](#code-overview)
@@ -60,7 +60,7 @@ The goal of this project is to develop a multi-functional device by using an MSP
 
 Moreover, the ESP32 will host a real-time web application that will enable you to view all measurements in real-time.
 
-The project is named "*bLong*" because the letter "*b*" represents Bubble Level function and "*Long*" refers to the length/distance measured by the Meter and the Lidar sensor. The pronunciation of "*bLong*" is similar to "*belong*," emphasizing that this project is a part of us.
+The project is named "*bLong*" because the letter "*b*" represents Bubble Level function and "*Long*" refers to the length/distance measured by the Meter and the Lidar sensor. The pronunciation of "*bLong*" is similar to "*belong*," emphasizing that this project belongs to us.
 
 # Hardware and Software Requirements
 
@@ -203,11 +203,11 @@ The following softwares were used for this project:
 2. In the **Import Projects from File System or Archive**, select the project.
 3. Click Finish.
 
-<h3 id="install-the-libraries-ccs">Install the Libraries</h3>
+<h3 id="import-the-libraries-ccs">Import the Libraries</h3>
 
 * Download the `SIMPLELINK-MSP432-SDK` library [here](https://www.ti.com/tool/download/SIMPLELINK-MSP432-SDK/3.40.01.02), then:
 
-  1. In the **Project Explorer**, right click on the project folder, then go to **Properties**. Alternatively, you can press `Alt+Enter` on Windows or `Cmd+Enter` on Mac.
+  1. In the **Project Explorer**, right click on the project folder, then go to **Properties**. Alternatively, you can press `Alt+Enter` on Windows or `⌘+Enter` on Mac.
   2. Go to **Build** > **Arm Compiler** > **Include Options** and add the following path:
         - `simplelink_msp432p4_sdk_3_40_01_02\source` (or the path where you saved the lib).
   
@@ -215,7 +215,9 @@ The following softwares were used for this project:
     3. Go to **Build** > **Arm Linker** > **File Search Path** and add the following paths:
         - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\grlib\lib\ccs\m4\grlib.a` (the path where you saved the lib).
         - `simplelink_msp432p4_sdk_3_40_01_02\source\ti\devices\msp432p4xx\driverlib\ccs\msp432p4xx_driverlib.lib` (the path where you saved the lib).
-  
+
+> **Note**: for this project, version 3.40.01.02 was used. However, you can choose a different version if you prefer but keep in mind that some things may change, though.
+
 * Put the `LcdDriver` folder located at `MSP432P401R/libraries` inside the project folder.
 
 
@@ -278,9 +280,8 @@ bLong
 ```
 MSP432
  ┣ libraries						# Libraries to be included in the project (see Installation and Configuration)
- ┃ ┣ LcdDriver
- ┗ src
  ┃ ┣ LcdDriver						# Support for the Lcd screen of the BoosterPack board
+ ┗ src
  ┃ ┣ Gr_bLong.c						# Splash screen image
  ┃ ┣ Gr_bubbleLevel.c					# Bubble Level interface
  ┃ ┣ Gr_lidarInit.c					# Lidar interface
@@ -361,7 +362,7 @@ ESP32
 
 ### UART Communication
 
-In this project, UART 2 is used for the UART communication. The transmission of data from ESP32 to MSP432 is achieved through the connection between pin 17 of the ESP32 and P3.2, while the connection between pin 16 of the ESP32 and P3.3 is used for receiving data. This is accomplished within the `esp32_uart.*` files. In addition, the `UARTClass` provides the `UART` object, which facilitates the management of UART communication between the two devices.
+In this project, UART 2 is used for the UART communication. The transmission of data from MSP432 to ESP32 is achieved through the connection between pin 17 of the ESP32 and P3.2 of the MSP432, while the connection between pin 16 of the ESP32 and P3.3 of the MSP432 is used for receiving data. This is accomplished within the `esp32_uart.*` files. In addition, the `UARTClass` provides the `UART` object, which facilitates the management of UART communication between the two devices.
 
 The communication is initialized by creating an instance of the `HardwareSerial` class, `SerialPort`, where it is specified the UART version used. Then, the `SerialPort` object is further customized with other parameters.
 
@@ -376,7 +377,26 @@ this->SerialPort.begin(UART_BAUDRATE, UART_SERIAL, UART_RXD, UART_TXD);
 
 > **Note**: in the `begin(...)` function of the `SerialPort` object, there are other adjustable parameters, including `invert`, `timeout_ms` and `rxfifo_full_threshold`, however, for this project, they are left unchanged at their default values.
 
-Finally, the received message can be retrieved by calling the `getMessageUART()` function of the UART object. The ESP32 first checks the availability of the serial port using the `Serial.available()` function, and if it is available, it reads the port's buffer using `Serial.read()`.
+Similarly, it's also possible to set these parameters on the MSP432 in the ```msp432_init.c``` file by changing the following variable:
+
+```c
+const eUSCI_UART_ConfigV1 uartConfig =
+{
+    EUSCI_A_UART_CLOCKSOURCE_SMCLK,          // SMCLK Clock Source
+    13,                                      // BRDIV = 13
+    0,                                       // UCxBRF = 0
+    37,                                      // UCxBRS = 37
+    EUSCI_A_UART_NO_PARITY,                  // No Parity
+    EUSCI_A_UART_LSB_FIRST,                  // LSB First
+    EUSCI_A_UART_ONE_STOP_BIT,               // One stop bit
+    EUSCI_A_UART_MODE,                       // UART mode
+    EUSCI_A_UART_OVERSAMPLING_BAUDRATE_GENERATION,  // Oversampling
+    EUSCI_A_UART_8_BIT_LEN                  // 8 bit data length
+
+};
+```
+
+Finally, the received message can be retrieved by calling the `getMessageUART()` function of the UART object. The ESP32 first checks the availability of the serial port using the `SerialPort.available()` function, and if it is available, it reads the port's buffer using `SerialPort.read()`.
 
 Each message has a maximum length of 8 bits. To enable communication between the MSP432 and the ESP32, the MSP432 sends a start and end bit for each message and they can vary. The value to be sent is split into 8-bit chunks, so the number of chunks can vary based on the size of the value and at the end they are reassembled. To preserve decimal values and work with integer numbers only, the value is multiplied by 10 or 100, converted to an integer, and sent. In this way it's possible to preserve up to two decimal digits. Finally, the end bit is then transmitted. 
 
@@ -384,14 +404,14 @@ These are the start/stop bits used:
 
 * **Meter**: the bits are equal to 0 since it was decided to transmit the increment detected by the encoder. If we transmitted the measured value, it could have been equal to 0, which would have caused the ESP32 to confuse it as a start/stop bit. By sending the increment, we ensure that it will never be equal to 0, as otherwise the meter function would not work. In addition, to minimize the number of packets sent, the MSP432 sends a sign bit after the start bit to indicate if the value is positive or negative. A value of 1 is used for negative numbers and 2 for positive ones, which allows us to use all 8 bits to represent a positive number. 
 
+> **Note**: using specific values as "system messages" reduces the available range of numbers for the MSP432 and ESP32, as these values may conflict with the more precise encoders. For example, using 2 as the sign bit for the meter mode may compromise a sensor with a sensitivity as low as 0.02 centimeters or less, as the system would not be able to distinguish between the sign bit and the actual detected value. While it's possible to create a more complex system, it's not necessary for this project due to hardware limitations set by the sensor used.
+
 > **Note**: due to hardware problems/limitations, the encoder sends the same message twice. For this reason, `skip_message` variable in `esp32_uart.cpp` tells the ESP32 to ignore the duplicated message that comes after the first one.
 
 * **Bubble Level**: the bits have a value of 50, but they can be set to any value above 45 as the Bubble Line transmits values within the range of 0 to 45.
 * **Lidar distance meter**: the logic used for this mode is the same as the one used in the Meter mode. However, this time, the roles of the transmitter and receiver are switched. In this case, the ESP32 acts as the master and the MSP432 as the slave, as the Lidar sensor is connected to the ESP32. 
 
-> **Note**: due to hardware problems/limitations, the MSP432 has some problems regarding the reception of the messages from the ESP32. For this reason, a delay was put in the `_sendMessage(...)` function.
-
-> **Note**: using specific values as "system messages" reduces the available range of numbers for the MSP432 and ESP32, as these values may conflict with the more precise encoders. For example, using 2 as the sign bit for the meter mode may compromise a sensor with a sensitivity as low as 0.02 centimeters or less, as the system would not be able to distinguish between the sign bit and the actual detected value. While it's possible to create a more complex system, it's not necessary for this project due to hardware limitations set by the sensors used.
+> **Note**: due to hardware problems/limitations, the MSP432 used for this project was unable to receive UART messages but only to send them. For this reason, the Lidar mode will not show the current measurement on the display of the MSP432, but rather on the Web App of the ESP32. Additionally, we provide code that can be used on an MSP432 without this problem. However, during the testing phase on another MSP432, a data loss issue was also found in the reception of UART messages. For this reason, a delay was put in the `_sendMessage(...)` function.
 
 ### I2C Communication
 
@@ -399,7 +419,7 @@ For the I2C communication between the ESP32 and the VL53L0XX-V2 Lidar sensor, th
 
 This communication is initiated by configuring the sensor using the `lox.configSensor(...)` function, where `lox` is an instance of the `Adafruit_VL53L0X` class created specifically for interacting with this sensor. There are several configuration options available. In this project, it was chosen the configuration that allows for measurement of longer distances (up to 2 meters), despite the loss of precision. The sensor is then initialized using the `begin()` function of the lox object.
 
-Finally, the captured data from the sensor can be obtained by using the `getMeasureLidar()` function. This function saves the data in a variable named `measure`. By examining the measure object, it's possible to determine if the detected distance is out of range, meaning the Lidar sensor did not receive a return signal. If everything is functioning properly and the `RangeStatus` variable returns a code other than 4, the distance value can be accessed by reading the `RangeMilliMeter` variable of the `measure` object. It's then possible to send the measure to the MSP432 by calling the `sendMessage(...)` function of the `UART` object.
+Finally, the captured data from the sensor can be obtained by using the `getMeasureLidar()` function. This function saves the data in a variable named `measure`. By examining the measure object, it's possible to determine if the detected distance is out of range, meaning the Lidar sensor did not receive a return signal. If everything is functioning properly and the `RangeStatus` variable returns a code other than 4, the distance value can be accessed by reading the `RangeMilliMeter` variable of the `measure` object. If not, the function will return -1. It's then possible to send the measure to the MSP432 by calling the `sendMessage(...)` function of the `UART` object.
 
 ### Web Application
 
@@ -449,7 +469,7 @@ Once you have uploaded the scripts to both the MSP432 and ESP32 and done all the
 
 Video
 
-[Presentation](https://www.canva.com/design/DAFaXvxzNeQ/_uzlmAVW-CrFlIxJXbTDzw/view?utm_content=DAFaXvxzNeQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Presentation](https://www.canva.com/design/DAFaXvxzNeQ/_uzlmAVW-CrFlIxJXbTDzw/view)
 
 # Contributions
 
