@@ -32,10 +32,6 @@ int checkInterruptA();
 int canClickA();
 void buttonA();
 
-// Lidar
-int status = 0; // 0 if waiting for stop/start bit, 1 if waiting for message
-int increment = 0; // stores the message if it's split in multiple parts
-
 // Extern variables
 
 // Menu
