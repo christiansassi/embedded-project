@@ -99,7 +99,6 @@ void drawImageBubbleLevel(Graphics_Context *g_sContext)
 void drawImageLidar(Graphics_Context *g_sContext)
 {
     Graphics_drawImage(g_sContext, &lidar4BPP_UNCOMP, 0, 0);
-    //Graphics_drawCircle(g_sContext, 9, 117, 5);
     Graphics_drawCircle(g_sContext, 117, 117, 5);
 }
 
