@@ -414,9 +414,10 @@ These are the start/stop bits used:
 > **Note**: due to hardware problems/limitations, the encoder sends the same message twice. For this reason, `skip_message` variable in `esp32_uart.cpp` tells the ESP32 to ignore the duplicated message that comes after the first one.
 
 * **Bubble Level**: the bits have a value of 50, but they can be set to any value above 45 as the Bubble Line transmits values within the range of 0 to 45.
+
 * **Lidar distance meter**: the logic used for this mode is the same as the one used in the Meter mode. However, this time, the roles of the transmitter and receiver are switched. In this case, the ESP32 acts as the master and the MSP432 as the slave, as the Lidar sensor is connected to the ESP32. 
 
-> **Note**: due to hardware problems/limitations, the MSP432 used for this project was unable to receive UART messages but only to send them. For this reason, the Lidar mode will not show the current measurement on the display of the MSP432, but rather on the Web App of the ESP32. Additionally, we provide code that can be used on an MSP432 without this problem. However, during the testing phase on another MSP432, a data loss issue was also found in the reception of UART messages. For this reason, a delay was put in the `_sendMessage(...)` function.
+> **Note**: due to hardware problems/limitations, the MSP432 used for this project was unable to receive UART messages but only to send them. For this reason, the Lidar mode will not show the current measurement on the display of the MSP432, but rather on the Web App of the ESP32. Additionally, we provide partial code that can be used on an MSP432 without this problem. However, during the testing phase on another MSP432, a data loss issue was also found in the reception of UART messages. For this reason, a delay was put in the `_sendMessage(...)` function of `esp32_uart.cpp`.
 
 ### I2C Communication
 
