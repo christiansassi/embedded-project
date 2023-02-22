@@ -17,8 +17,6 @@
 const uint16_t wheelRadius  = 15; // Wheel radius (in millimeter)
 const float pi = 3.14159265358979323846264338327950288; // Pi value
 
-float inc = 0.0; // Measure increment at each step
-
 int START = 0; // Control variable
 extern int METER_STATE = 1; // It defines if the meter is in start / stop state
 
@@ -69,7 +67,7 @@ void encoderHandler(Graphics_Context *g_sContext)
         return;
 
     // Define increment
-    inc = (2*pi*wheelRadius)/20;
+    float inc = (2*pi*wheelRadius)/20;  // Measure increment at each step
 
     drawImageMeterInit(g_sContext);
     printMeasure(g_sContext, measure);
