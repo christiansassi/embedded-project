@@ -10,8 +10,6 @@ int increment = 0;
 int sign = 0;
 float total = 0;
 
-bool skip_message = false;
-
 //*****************************************************************************
 //
 //! Init UART 
@@ -70,7 +68,6 @@ void UARTClass::handleMessageUART()
             increment = 0;
             sign = 0;
             total = 0;
-            skip_message = false;
 
             update(message);
 
@@ -117,25 +114,15 @@ void UARTClass::handleMessageUART()
                 {
                     // Stop bit
 
-                    /* 
-                        The encoder sends the same message
-                        two times. For this reason, skip_message variable tells the ESP32
-                        to ignore the second message.
-                    */
-                    if(!skip_message)
-                    {
-                        float value = (float) increment / 1000;
-                        value = value * ((sign == 1) ? 1 : -1);
+                    float value = (float) increment / 1000;
+                    value = value * ((sign == 1) ? 1 : -1);
 
-                        total += value;
-                        total = (total < 0) ? 0 : total;
-                        
-                        meterLastMeasure = String(total);
+                    total += value;
+                    total = (total < 0) ? 0 : total;
 
-                        Server.setLiveMeasure(String(total), getCurrentUnit());
-                    }
+                    meterLastMeasure = String(total);
 
-                    skip_message = !skip_message;
+                    Server.setLiveMeasure(String(total), getCurrentUnit());
 
                     status = 0;
                     increment = 0;
