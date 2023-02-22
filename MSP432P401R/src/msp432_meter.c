@@ -21,7 +21,7 @@ int START = 0; // Control variable
 extern int METER_STATE = 1; // It defines if the meter is in start / stop state
 
 typedef enum {MENU, METER, BUBBLE_LEVEL, LIDAR} STATE;
-extern STATE CURRENT_STATE;
+extern volatile STATE CURRENT_STATE;
 
 
 //*****************************************************************************
