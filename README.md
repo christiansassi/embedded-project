@@ -307,7 +307,7 @@ MSP432
  ┃ ┗ system_msp432p401r.c
 ```
 
-All the `Gr_*.c` files contain images that have been converted into hexadecimal format for be embedded into the script.
+All the `Gr_*.c` files contain images that have been converted into hexadecimal format to be embedded into the script.
 
 ### Menu
 
