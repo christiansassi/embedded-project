@@ -277,10 +277,7 @@ void EUSCIA2_IRQHandler(void)
     if(status & EUSCI_A_UART_RECEIVE_INTERRUPT_FLAG)
     {
         Interrupt_disableSleepOnIsrExit();
-
-        if(!LIDAR_STATE)
-            return;
-
+        
         int message = UART_receiveData(EUSCI_A2_BASE);
 
        // Incomplete due to UART problems
