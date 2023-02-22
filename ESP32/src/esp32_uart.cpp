@@ -304,8 +304,6 @@ String UARTClass::getCurrentLastMeasure()
 //*****************************************************************************
 void UARTClass::update(int newState)
 {
-    Serial.println("updateCurrentState");
-
     // Update current state since all messages coming from MENU mode will change the mode
     updateCurrentState(newState);
 
