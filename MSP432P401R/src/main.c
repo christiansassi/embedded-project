@@ -12,7 +12,7 @@
 Graphics_Context g_sContext = {};
 
 // Buttons utils and variables
-const unsigned MIN_DELAY = 2; // Minimum wait time before a button can be clicked again.
+const unsigned MIN_DELAY = 0; // Minimum wait time before a button can be clicked again.
 unsigned LAST_CLICK_B = 0; // Last click of button B (timestamp)
 unsigned LAST_CLICK_A = 0;
 
