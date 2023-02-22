@@ -16,7 +16,7 @@
 extern int LIDAR_STATE = 0; // 0 if it's receiving data from the lidar sensor, 0 otherwise
 
 typedef enum {MENU, METER, BUBBLE_LEVEL, LIDAR} STATE;
-extern STATE CURRENT_STATE;
+extern volatile STATE CURRENT_STATE;
 
 //*****************************************************************************
 //
