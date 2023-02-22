@@ -14,7 +14,7 @@
 
 // Extern variables
 typedef enum {MENU, METER, BUBBLE_LEVEL, LIDAR} STATE;
-extern STATE CURRENT_STATE; // Current state
+extern volatile STATE CURRENT_STATE; // Current state
 
 //*****************************************************************************
 //
