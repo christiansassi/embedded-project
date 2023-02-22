@@ -44,14 +44,8 @@ extern STATE CURRENT_STATE = MENU;
 
 extern int CURSOR;
 
-// Meter
-extern int METER_STATE;
-
 // Bubble Level
 extern uint16_t xMeasured;
-
-// Lidar
-extern int LIDAR_STATE; // 0 if it's receiving data from the lidar sensor, 0 otherwis
 
 void main(void)
 {
