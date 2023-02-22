@@ -118,7 +118,7 @@ void UARTClass::handleMessageUART()
                     // Stop bit
 
                     /* 
-                        Due to hardware problems/limitations, the encoder sends the same message
+                        The encoder sends the same message
                         two times. For this reason, skip_message variable tells the ESP32
                         to ignore the second message.
                     */
