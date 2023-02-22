@@ -287,7 +287,7 @@ void EUSCIA2_IRQHandler(void)
 
         int message = UART_receiveData(EUSCI_A2_BASE);
 
-       // Not tested
+       // Incomplete due to UART problems
     }
 
 }
