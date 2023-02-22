@@ -167,8 +167,6 @@ class ServerClass
         String getLiveMeasure();
 };
 
-String getMode();
-
 extern ServerClass Server;
 
 #endif
