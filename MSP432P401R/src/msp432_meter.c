@@ -70,30 +70,13 @@ void encoder(Graphics_Context *g_sContext)
             if (currDt == currClk)
             {
                 // Clockwise means increment
-                //(i == 0 ? (measure += inc, i++) : (i = 0))
-                if(i == 0){
-                    measure += inc;
-                    i++;
-                    sendMeterIncrement(inc);
-                }
-                else
-                {
-                    i = 0;
-                }
+                (i == 0 ? (measure += inc, i++) : (i = 0))
             }
             else
             {
                 // Counterclockwise means decrement
-                //(i == 0 ? (measure -= inc, i++) : (i = 0));
-                if(i == 0){
-                    measure -= inc;
-                    i++;
-                    sendMeterIncrement(-inc);
-                }
-                else
-                {
-                    i = 0;
-                }            }
+                (i == 0 ? (measure -= inc, i++) : (i = 0));
+            }
 
             prevClk = currClk;
 
