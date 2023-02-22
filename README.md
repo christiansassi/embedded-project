@@ -284,11 +284,11 @@ MSP432
  ┗ src
  ┃ ┣ Gr_bLong.c						# Splash screen image
  ┃ ┣ Gr_bubbleLevel.c					# Bubble Level interface
- ┃ ┣ Gr_lidarInit.c					# Lidar interface
+ ┃ ┣ Gr_lidar.c						# Lidar interface
  ┃ ┣ Gr_menu.c						# Menu interface
- ┃ ┣ Gr_meterInit.c					# Initial Meter interface
- ┃ ┣ Gr_meterMeasure.c					# Running Meter interface
+ ┃ ┣ Gr_meter.c						# Meter interface
  ┃ ┣ main.c						# Main
+ ┃ ┣ msp432p401r.cmd
  ┃ ┣ msp432_bubbleLevel.c				# Manages the Bubble Level tool 
  ┃ ┣ msp432_bubbleLevel.h				# //
  ┃ ┣ msp432_init.c					# Initializes hardware
@@ -303,6 +303,8 @@ MSP432
  ┃ ┣ msp432_uart.h					# //
  ┃ ┣ msp432_utils.c					# Set of utility functions (graphic, time etc...)
  ┃ ┣ msp432_utils.h					# //
+ ┃ ┣ startup_msp432p401r_ccs.c
+ ┃ ┗ system_msp432p401r.c
 ```
 
 All the `Gr_*.c` files contain images that have been converted into hexadecimal format for be embedded into the script.
