@@ -287,47 +287,7 @@ void EUSCIA2_IRQHandler(void)
 
         int message = UART_receiveData(EUSCI_A2_BASE);
 
-        /*
-            The messages sent by the ESP32 have the following structure:
-            | 0 | chunk | ... | chunk | 0 |
-
-            0 is used as start and stop bit
-            chunk is the sent number (or part of it)
-        */
-
-        if(status == 0)
-        {
-            if(message == 0)
-                status = 1;
-        }
-        else if(status == 1)
-        {
-            if(message == 0)
-            {
-                float distance = (float) increment / 10;
-
-                // Display received data
-                displayMeasure(&g_sContext, distance);
-
-                increment = 0;
-                status = 0;
-
-                // Check if back button has been pressed
-                if(checkInterruptB())
-                {
-                    buttonB();
-                    return;
-                }
-
-                // Ask for new data
-                sendMessage(2);
-            }
-            else
-            {
-                increment += message;
-            }
-
-        }
+       // Not tested
     }
 
 }
