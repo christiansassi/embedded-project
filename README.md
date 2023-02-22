@@ -339,6 +339,8 @@ The Lidar distance function is made possible by the Lidar sensor. This is accomp
 
 For this project, the lidar sensor is connected to the ESP32 which acts as the master and the MSP432 as the slave. The communication between the two board is the same of the one used for the communication between the MSP432 (master) and ESP32 (slave) but switched. The MSP432 will send a message containing a 1 each time it desiders a new measure and a message containing 2 if the back button is pressed. 
 
+> **Note**: the precision of the Lidar sensor is also given by the color of the surface that reflects the signal.
+
 ## ESP32
 
 <h3 id="project-layout-arduino">Project Layout</h3>
