@@ -474,7 +474,7 @@ Once you have uploaded the scripts to both the MSP432 and ESP32 and done all the
 
 Video
 
-[Presentation](https://www.canva.com/design/DAFaXvxzNeQ/_uzlmAVW-CrFlIxJXbTDzw/view)
+[Presentation](https://www.canva.com/design/DAFaXvxzNeQ/_uzlmAVW-CrFlIxJXbTDzw/edit?utm_content=DAFaXvxzNeQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 # Contributions
 
