@@ -472,7 +472,7 @@ Once you have uploaded the scripts to both the MSP432 and ESP32 and done all the
 
 # Video and Presentation
 
-Video
+[Video](https://www.youtube.com/watch?v=2UvOyxqtf-M)
 
 [Presentation](https://www.canva.com/design/DAFaXvxzNeQ/_uzlmAVW-CrFlIxJXbTDzw/edit?utm_content=DAFaXvxzNeQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
