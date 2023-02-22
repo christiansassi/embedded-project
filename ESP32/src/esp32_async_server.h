@@ -161,10 +161,6 @@ class ServerClass
         void setMode(String mode);
         void setLastMeasure(String lastMeasure, String unit);
         void setLiveMeasure(String liveMeasure, String unit);
-
-        String getMode();
-        String getLastMeasure();
-        String getLiveMeasure();
 };
 
 extern ServerClass Server;
