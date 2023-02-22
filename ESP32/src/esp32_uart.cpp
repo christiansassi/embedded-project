@@ -140,10 +140,9 @@ void UARTClass::handleMessageUART()
 
             /*
                 The messages sent by the MSP432 have the following structure:
-                | 50 | 1/2 | chunk | ... | chunk | 50 |
+                | 50 | chunk | ... | chunk | 50 |
                 
                 50 is used as start and stop bit
-                1/2 is used to specify if the number is positive or negative
                 chunk is the sent number (or part of it)
 
                 However, if 100 is received, the ESP32 will go back to the menu
@@ -177,15 +176,18 @@ void UARTClass::handleMessageUART()
         
         case LIDAR:
             
-            Serial.println(lidarLastMeasure);
-
-            if(message == 1)
+            /*
+                If the MSP432 sends 10, the ESP32 will capture and display a new measure.
+                If the MSP432 sends 11, the ESP32 will go back to the menu.
+            */
+            
+            if(message == 10)
             {
                 float distance = Lidar.getMeasureLidar();
                 lidarLastMeasure = String(distance);
                 Server.setLiveMeasure(String(distance), getCurrentUnit());
             }
-            else
+            else if(message == 11)
             {
                 update(MENU);
             }
