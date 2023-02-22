@@ -260,6 +260,7 @@ void EUSCIA2_IRQHandler(void)
         Interrupt_disableSleepOnIsrExit();
 
         int message = UART_receiveData(EUSCI_A2_BASE);
-
+        
+        // Not used, incomplete.
     }
 }
