@@ -13,7 +13,6 @@
 #include "msp432_menu.h"
 #include "msp432_utils.h"
 
-int SELECTED = -1; // Selected item
 int CURSOR = 1; // Cursor position
 
 int WAIT_POS = 0; // If 1 it waits until the joystick has been returned to INIT_POS
@@ -122,9 +121,6 @@ void joystickMenu(Graphics_Context *g_sContext)
 void resetMenu(Graphics_Context *g_sContext)
 {
     // Reset variables associated with the menu
-
-    //SELECTED = -1;
-    //CURSOR = 1;
 
     INIT_IMG = 0;
 
