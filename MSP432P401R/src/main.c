@@ -65,7 +65,6 @@ void main(void)
                 sendMessage(3);     // return to menu
                 break;
             case LIDAR:
-                sendMessage(10);
                 lidarInit(&g_sContext);
                 sendMessage(11);
                 break;
