@@ -51,8 +51,6 @@ void updateMenu(Graphics_Context *g_sContext)
         else if((BOX[i] == 1 && i != CURSOR - 1) || INIT_POS == -1)
         {
             // Empty button
-            Graphics_drawCircle(g_sContext, LF_MARGIN, START_HEIGHT+MARGIN*i, 5);
-
             BOX[i] = 0;
         }
     }
