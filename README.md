@@ -380,7 +380,7 @@ The communication is initialized by creating an instance of the `HardwareSerial`
 this->SerialPort.begin(UART_BAUDRATE, UART_SERIAL, UART_RXD, UART_TXD);
 ```
 
-> **Note**: in the `begin(...)` function of the `SerialPort` object, there are other adjustable parameters, including `invert`, `timeout_ms` and `rxfifo_full_threshold`, however, for this project, they are left unchanged at their default values.
+> **Note**: in the `begin(...)` method of the `SerialPort` object, there are other adjustable parameters, including `invert`, `timeout_ms` and `rxfifo_full_threshold`, however, for this project, they are left unchanged at their default values.
 
 Similarly, it's also possible to set these parameters on the MSP432 in the ```msp432_init.c``` file by changing the following variable:
 
@@ -401,7 +401,7 @@ const eUSCI_UART_ConfigV1 uartConfig =
 };
 ```
 
-Finally, the received message can be retrieved by calling the `getMessageUART()` function of the UART object. The ESP32 first checks the availability of the serial port using the `SerialPort.available()` function, and if it is available, it reads the port's buffer using `SerialPort.read()`.
+Finally, the received message can be retrieved by calling the `getMessageUART()` method of the UART object. The ESP32 first checks the availability of the serial port using the `SerialPort.available()` method, and if it is available, it reads the port's buffer using `SerialPort.read()`.
 
 Each message has a maximum length of 8 bits. To enable communication between the MSP432 and the ESP32, the MSP432 sends a start and end bit for each message and they can vary. The value to be sent is split into 8-bit chunks, so the number of chunks can vary based on the size of the value and at the end they are reassembled. To preserve decimal values and work with integer numbers only, the value is multiplied by 10 or 100, converted to an integer, and sent. In this way it's possible to preserve up to two decimal digits. Finally, the end bit is then transmitted. 
 
@@ -415,7 +415,7 @@ These are the start/stop bits used:
 
 * **Lidar distance meter**: the logic used for this mode is the same as the one used in the Meter mode. However, this time, the roles of the transmitter and receiver are switched. In this case, the ESP32 acts as the master and the MSP432 as the slave, as the Lidar sensor is connected to the ESP32. 
 
-> **Note**: due to hardware problems/limitations, the MSP432 used for this project was unable to receive UART messages but only to send them. For this reason, the Lidar mode will not show the current measurement on the display of the MSP432, but rather on the Web App of the ESP32. Additionally, we provide partial code that can be used on an MSP432 without this problem. However, during the testing phase on another MSP432, a data loss issue was also found in the reception of UART messages. For this reason, a delay was put in the `_sendMessage(...)` function of `esp32_uart.cpp`.
+> **Note**: due to hardware problems/limitations, the MSP432 used for this project was unable to receive UART messages but only to send them. For this reason, the Lidar mode will not show the current measurement on the display of the MSP432, but rather on the Web App of the ESP32. Additionally, we provide partial code that can be used on an MSP432 without this problem. However, during the testing phase on another MSP432, a data loss issue was also found in the reception of UART messages. For this reason, a delay was put in the `_sendMessage(...)` method of `esp32_uart.cpp`. It can be used by using the public method `sendMessage(...)`.
 
 ### I2C Communication
 
