@@ -45,7 +45,7 @@ void displayMeasure(Graphics_Context *g_sContext)
     // Display measure
     Graphics_drawStringCentered(g_sContext, (int8_t *) "         ",AUTO_STRING_LENGTH, CENTER, START_HEIGHT+27, OPAQUE_TEXT);
 
-    char string[5];
+    char string[10];
     sprintf(string, "Measuring");
 
     Graphics_drawStringCentered(g_sContext, (int8_t *) string,AUTO_STRING_LENGTH, CENTER, START_HEIGHT+27, OPAQUE_TEXT);
