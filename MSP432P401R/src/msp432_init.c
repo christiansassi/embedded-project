@@ -11,6 +11,7 @@
 #include "msp432_init.h"
 #include "msp432_utils.h"
 
+// UART configuration
 const eUSCI_UART_ConfigV1 uartConfig =
 {
     EUSCI_A_UART_CLOCKSOURCE_SMCLK,          // SMCLK Clock Source
