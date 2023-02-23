@@ -30,7 +30,6 @@ void lidarInit(Graphics_Context *g_sContext)
 
     lidar(g_sContext);
 
-    sendMessage(11);
     GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
 
 }
