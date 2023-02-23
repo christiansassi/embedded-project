@@ -48,7 +48,7 @@ void updateMenu(Graphics_Context *g_sContext)
 
             BOX[i] = 1;
         }
-        else if((BOX[i] == 1 && i != CURSOR - 1) || INIT_POS == -1)
+        else
         {
             // Empty button
             BOX[i] = 0;
