@@ -61,12 +61,10 @@ void main(void)
     while(1){
         switch(CURRENT_STATE){
             case METER:
-                drawImageMeter(&g_sContext);
                 meter(&g_sContext);
                 sendMessage(3);     // return to menu
                 break;
             case LIDAR:
-                drawImageLidar(&g_sContext);
                 sendMessage(10);
                 lidarInit(&g_sContext);
                 sendMessage(11);
@@ -78,7 +76,7 @@ void main(void)
 
 //*****************************************************************************
 //
-//! Handler associated with the joystick
+//! Handler associated with the joystick and the bubble level
 //
 //*****************************************************************************
 void ADC14_IRQHandler()
